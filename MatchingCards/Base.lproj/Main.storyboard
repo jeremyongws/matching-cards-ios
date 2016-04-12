@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Card View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CardViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,54 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="RULES BITCH!" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gm-dp-tNC">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgd-A0-gxv">
+                                <rect key="frame" x="275" y="558" width="50" height="30"/>
+                                <state key="normal" title="Shuffle"/>
+                                <connections>
+                                    <action selector="onShuffleButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AXG-6b-7aT"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rZ9-vn-6Gu">
+                                <rect key="frame" x="0.0" y="95" width="600" height="455"/>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rgd-A0-gxv" firstAttribute="centerX" secondItem="rZ9-vn-6Gu" secondAttribute="centerX" id="67W-nZ-7E4"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="9gm-dp-tNC" secondAttribute="bottom" id="8ib-Hn-bPl"/>
+                            <constraint firstItem="9gm-dp-tNC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="9KB-Lf-ukk"/>
+                            <constraint firstAttribute="trailing" secondItem="9gm-dp-tNC" secondAttribute="trailing" id="F3M-GG-dgr"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rZ9-vn-6Gu" secondAttribute="bottom" constant="50" id="bKq-69-VJQ"/>
+                            <constraint firstItem="9gm-dp-tNC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="cEJ-Nk-ZeJ"/>
+                            <constraint firstItem="rgd-A0-gxv" firstAttribute="top" secondItem="rZ9-vn-6Gu" secondAttribute="bottom" constant="8" symbolic="YES" id="ctg-Qx-1cY"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rZ9-vn-6Gu" secondAttribute="bottom" id="fZw-vb-oAl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rZ9-vn-6Gu" secondAttribute="trailing" constant="-20" id="g9J-5B-Tna"/>
+                            <constraint firstItem="rZ9-vn-6Gu" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="75" id="kkj-pz-Z5c"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rZ9-vn-6Gu" secondAttribute="bottom" id="wyg-7S-Nde"/>
+                            <constraint firstItem="rZ9-vn-6Gu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="zQG-83-t7Q"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="fZw-vb-oAl"/>
+                                <exclude reference="wyg-7S-Nde"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="cardStackView" destination="rZ9-vn-6Gu" id="i37-Id-xNE"/>
+                        <outlet property="rulesTextView" destination="9gm-dp-tNC" id="Gp1-KO-TPo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="273" y="304"/>
         </scene>
     </scenes>
 </document>
